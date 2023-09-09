@@ -34,10 +34,30 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">View Food</a>
                     </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href={% url 'users:logout-user' %}>Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href={% url 'users:user-profile' %}>Profile</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href={% url 'users:login-user' %}>Login</a>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
     </nav>
+
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{message.tags}}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
     
     {% block content %}{% endblock content %}
 </body>

@@ -31,7 +31,6 @@ def create_food(request):
 
 def update_food(request, item_id):
     item = Food.objects.get(pk=item_id)
-    print(item)
     form = FoodForm(request.POST or None, instance=item)
 
     if form.is_valid():
