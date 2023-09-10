@@ -13,7 +13,8 @@
                     <div class="card-body">
                         <h5 class="card-title">{{item.name}}</h5>
                         <p class="card-text">{{item.desc | truncatewords:20}}</p>
-                        <p class="card-text"><small class="text-body-secondary">Rs. {{item.price}}</small></p>
+                        <span class="card-text"><small class="text-body-secondary">Rs. {{item.price}}</small></span>
+                        <span style="margin-left: 20px;">{{item.author}}</span>
                     </div>
                 </div>
                 <div class="col-md-2 d-flex align-items-center">
